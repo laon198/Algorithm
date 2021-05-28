@@ -2,22 +2,30 @@ package Sort;
 
 import java.util.Arrays;
 
-public class Test {
-    public static void main(String args[]){
-//        Integer[] intRanArr = ValueConstructor.intRandomArr(50000);
-        Integer[] intRanArr = {2, 51, 0, 92, 11, 13, 1, -2};
-//        Integer[] intRanArr = {1, 2, 3, 4, 5, 6, 7};
-        long timeB = System.currentTimeMillis();
-        QuickSort.sort(intRanArr);
-        long timeA = System.currentTimeMillis();
-        System.out.println("time : "+(double)(timeA-timeB)/1000);
-        System.out.println(Arrays.toString(intRanArr));
+import subject.*;
 
-        Integer[] intArr = {2, 51, 0, 92, 11, 13, 1, -2};
-        timeB = System.currentTimeMillis();
-        MedianQuickSort.sort(intArr);
-        timeA = System.currentTimeMillis();
-        System.out.println("time : "+(double)(timeA-timeB)/1000);
-        System.out.println(Arrays.toString(intArr));
-    }
+public class Test {
+	public static void main(String args[]) {
+		
+		IntegerGenerator.setSeed(10);
+		Integer[] intRanArr = IntegerGenerator.random(5000, 1000);
+		long timeB = System.currentTimeMillis();
+		BubbleSort.sort(intRanArr);
+		long timeA = System.currentTimeMillis();
+		System.out.println("time : " + (double) (timeA - timeB) / 1000);
+
+		IntegerGenerator.setSeed(10);
+		Integer[] intInArr = IntegerGenerator.increase(5000, 1000);
+		timeB = System.currentTimeMillis();
+		BubbleSort.sort(intInArr);
+		timeA = System.currentTimeMillis();
+		System.out.println("time : " + (double) (timeA - timeB) / 1000);
+
+		IntegerGenerator.setSeed(10);
+		Integer[] intDeArr = IntegerGenerator.decrease(5000, 1000);
+		timeB = System.currentTimeMillis();
+		BubbleSort.sort(intDeArr);
+		timeA = System.currentTimeMillis();
+		System.out.println("time : " + (double) (timeA - timeB) / 1000);
+	}
 }
