@@ -2,7 +2,7 @@ package Sort;
 
 public class ShellSort {
     public static void sort(Comparable[] arr){
-        int interval = arr.length/2; //TODD : interval 다른 알고리즘 생각하기
+        int interval = arr.length/2;
         while(interval>=1){
             sort(arr, interval);
             interval /= 2;
