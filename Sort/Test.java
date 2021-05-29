@@ -8,11 +8,12 @@ public class Test {
 	public static void main(String args[]) {
 
 		IntegerGenerator.setSeed(10);
-		Integer[] intRanArr = IntegerGenerator.random(10000, 1000);
+		Integer[] intRanArr = IntegerGenerator.random(15, 100);
 		long timeB = System.currentTimeMillis();
-		InsertionSort.sort(intRanArr);
+		IterativeMergeSort.sort(intRanArr);
 		long timeA = System.currentTimeMillis();
 		System.out.println("time : " + (double) (timeA - timeB) / 1000);
+		System.out.println(Arrays.toString(intRanArr));
 
 //
 //		IntegerGenerator.setSeed(10);
