@@ -7,7 +7,7 @@ public class MedianQuickSort {
 
     private static void sort(Comparable[] arr, int start, int end){
         if(start>=end) return;
-        setPivot(arr, start, end); //TODO : 값 세개이하일때 처리 필요
+        setPivot(arr, start, end);
         int pivotIdx = partition(arr, start, end);
         sort(arr, start, pivotIdx-1);
         sort(arr, pivotIdx+1, end);
@@ -48,6 +48,6 @@ public class MedianQuickSort {
         if(mid.compareTo(right)>0) swap(arr, (start+end)/2, end);
         if(left.compareTo(mid)<0) swap(arr, start, (start+end)/2);
 
-        swap(arr, start, end); //TODO : 변경필요
+        swap(arr, start, end); //TODO : 蹂�寃쏀븘�슂
     }
 }

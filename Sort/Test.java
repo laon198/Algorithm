@@ -1,31 +1,38 @@
 package Sort;
 
-import java.util.Arrays;
-
 import subject.*;
 
+// 데이터 개수 : 5,000 10,000 25,000 50,000 100,000  max =  1000 / String = 100
 public class Test {
+
 	public static void main(String args[]) {
 		
-		IntegerGenerator.setSeed(10);
-		Integer[] intRanArr = IntegerGenerator.random(5000, 1000);
+		StudentGenerator.setSeed(10);
+		
+		Comparable[] intRanArr = StudentGenerator.random(5000);
+		
 		long timeB = System.currentTimeMillis();
-		BubbleSort.sort(intRanArr);
+		ShellSort.sort(intRanArr);
 		long timeA = System.currentTimeMillis();
+		
 		System.out.println("time : " + (double) (timeA - timeB) / 1000);
 
-		IntegerGenerator.setSeed(10);
-		Integer[] intInArr = IntegerGenerator.increase(5000, 1000);
-		timeB = System.currentTimeMillis();
-		BubbleSort.sort(intInArr);
-		timeA = System.currentTimeMillis();
-		System.out.println("time : " + (double) (timeA - timeB) / 1000);
+//		// increase value
+//		IntegerGenerator.setSeed(10);
+//
+//		Comparable[] intInArr = IntegerGenerator.increase(5000,1000);
+//		long timeB = System.currentTimeMillis();
+//		RecursiveMergeSort.sort(intInArr);
+//		long timeA = System.currentTimeMillis();
+//		System.out.println("time : " + (double) (timeA - timeB) / 1000);
 
-		IntegerGenerator.setSeed(10);
-		Integer[] intDeArr = IntegerGenerator.decrease(5000, 1000);
-		timeB = System.currentTimeMillis();
-		BubbleSort.sort(intDeArr);
-		timeA = System.currentTimeMillis();
-		System.out.println("time : " + (double) (timeA - timeB) / 1000);
+		// decrease value
+//		StudentGenerator.setSeed(10);
+//		Comparable[] intDeArr = StudentGenerator.decrease(5000);
+//		long timeB = System.currentTimeMillis();
+//		ShellSort.sort(intDeArr);
+//		long timeA = System.currentTimeMillis();
+//		System.out.println("time : " + (double) (timeA - timeB) / 1000);
+
 	}
 }
