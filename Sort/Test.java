@@ -7,9 +7,10 @@ import java.util.Arrays;
 public class Test {
 	public static void main(String args[]) {
 		IntegerGenerator.setSeed(10);
-		Integer[] intRanArr = IntegerGenerator.random(500000, 100);
+		Integer[] intRanArr = IntegerGenerator.random(20, 100);
+		System.out.println(Arrays.toString(intRanArr));
 		long timeB = System.currentTimeMillis();
-		QuickSort.sort(intRanArr);
+		NaturalMergeSort.sort(intRanArr);
 		long timeA = System.currentTimeMillis();
 		System.out.println("time : " + (double) (timeA - timeB) / 1000);
 
