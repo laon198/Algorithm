@@ -2,13 +2,14 @@ package Sort;
 
 import subject.*;
 
+import java.util.Arrays;
+
 public class Test {
 	public static void main(String args[]) {
-
 		IntegerGenerator.setSeed(10);
-		Integer[] intRanArr = IntegerGenerator.random(100000, 100);
+		Integer[] intRanArr = IntegerGenerator.random(1000000, 100);
 		long timeB = System.currentTimeMillis();
-		HexRadixSort.sort(intRanArr);
+		RadixSort.sort(intRanArr);
 		long timeA = System.currentTimeMillis();
 		System.out.println("time : " + (double) (timeA - timeB) / 1000);
 
