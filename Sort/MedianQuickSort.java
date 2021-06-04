@@ -48,6 +48,6 @@ public class MedianQuickSort {
         if(mid.compareTo(right)>0) swap(arr, (start+end)/2, end);
         if(left.compareTo(mid)<0) swap(arr, start, (start+end)/2);
 
-        swap(arr, start, end); //TODO : 蹂�寃쏀븘�슂
+        swap(arr, start, (start+end)/2);
     }
 }

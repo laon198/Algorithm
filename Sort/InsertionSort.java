@@ -1,5 +1,7 @@
 package Sort;
 
+import java.util.Arrays;
+
 public class InsertionSort {
     public static void sort(Comparable[] arr){
         for(int i=1; i<arr.length; i++){
@@ -11,6 +13,9 @@ public class InsertionSort {
                 j--;
             }
             arr[j+1] = curElement;
+            
         }
     }
+    
+    
 }

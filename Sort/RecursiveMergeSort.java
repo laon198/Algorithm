@@ -1,44 +1,59 @@
 package Sort;
 
+import java.util.Arrays;
+
 public class RecursiveMergeSort {
-		public static void merge(Comparable a[],Comparable b[],int start,int mid,int end) {
-			int i = start; int j = mid + 1;
-			for(int k = start; k <= end;k++) {
-				if(i > mid) b[k] = a[j++];
-				else if(j > end) b[k] = a[i++];
-				else if(isLess(a[j],a[i])) b[k] = a[j++];
-				else b[k] = a[i++];
+	private static void merge(Comparable arr[], int l, int m, int r) {
+		int n1 = m - l + 1;
+		int n2 = r - m;
+
+		Comparable L[] = new Comparable[n1];
+		Comparable R[] = new Comparable[n2];
+
+		for (int i = 0; i < n1; ++i)
+			L[i] = arr[l + i];
+		for (int j = 0; j < n2; ++j)
+			R[j] = arr[m + 1 + j];
+
+		int i = 0, j = 0;
+		int k = l;
+
+		while (i < n1 && j < n2) {
+			if (L[i].compareTo(R[j]) <= 0) {
+				arr[k] = L[i];
+				i++;
+			} else {
+				arr[k] = R[j];
+				j++;
 			}
-			for(int k = start ; k <= end; k++) {
-				a[k] = b[k];
-			}
+			k++;
 		}
-		
-		
-		public static void sort(Comparable a[],Comparable b[],int start,int end) {
-			if(start > end) return;
-			int mid = start + (end - start)/2;
-			sort(a,b,start,mid);
-			sort(a,b,mid+1,end);
-			if(isLess(a[mid], a[mid + 1])) return;
-			merge(a,b,start,mid,end);
-		
+
+		while (i < n1) {
+			arr[k] = L[i];
+			i++;
+			k++;
 		}
-		
-		
-		public static void sort(Comparable a[]) {
-			Comparable []b = new Comparable[a.length];
-			sort(a,b,0,a.length - 1);
+
+		while (j < n2) {
+			arr[k] = R[j];
+			j++;
+			k++;
 		}
-		
-		public static boolean isLess(Comparable a,Comparable b) {
-			return a.compareTo(b) < 0;
+	}
+
+	private static void sort(Comparable arr[], int l, int r) {
+		if (l < r) {
+			int m = l + (r - l) / 2;
+
+			sort(arr, l, m);
+			sort(arr, m + 1, r);
+
+			merge(arr, l, m, r);
 		}
-		
-		
-		public static void swap(Comparable[] keys, int a, int b) {
-			Comparable tmp = keys[a];
-			keys[a] = keys[b];
-			keys[b] = tmp;
-		}
+	}
+
+	public static void sort(Comparable[] arr) {
+		sort(arr, 0, arr.length - 1);
+	}
 }
