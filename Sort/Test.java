@@ -8,6 +8,7 @@ public class Test {
 		
 		StudentGenerator.setSeed(10);
 		IntegerGenerator.setSeed(10);
+<<<<<<< HEAD
 		DoubleGenerator.setSeed(10);
 		StringGenerator.setSeed(10);
 		
@@ -15,6 +16,12 @@ public class Test {
 		
 		long timeB = System.currentTimeMillis();
 		BinaryInsertionSort.sort(intRanArr);
+=======
+		Integer[] intRanArr = IntegerGenerator.random(20, 100);
+		System.out.println(Arrays.toString(intRanArr));
+		long timeB = System.currentTimeMillis();
+		NaturalMergeSort.sort(intRanArr);
+>>>>>>> 53aced42400030bb09ccc1a501001bf9b5f0c846
 		long timeA = System.currentTimeMillis();
 		System.out.println("time : " + (double)(timeA - timeB) /1000);
 
