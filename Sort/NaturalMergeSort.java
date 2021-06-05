@@ -67,8 +67,4 @@ public class NaturalMergeSort {
         }
     }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 53aced42400030bb09ccc1a501001bf9b5f0c846

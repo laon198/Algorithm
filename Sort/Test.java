@@ -2,28 +2,80 @@ package Sort;
 
 import subject.*;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 public class Test {
-	public static void main(String args[]) {
-		//5,000 10,000 25,000 50,000 100,000
+	
+	public static Comparable[] getArray(String DataType, String sortType, int DataSize) {
+		Comparable[] arr;
+
+		if (DataType.equals("I")) {
+			arr = DataGenerator.getRandomIntArr(DataSize);
+		} else if (DataType.equals("D")) {
+			arr = DataGenerator.getRandomDoubleArr(DataSize);
+		} else if (DataType.equals("STR")) {
+			arr = DataGenerator.getRandomStringArr(DataSize);
+		} else if (DataType.equals("STD")) {
+			arr = DataGenerator.getRandomStdArr(DataSize);
+		}
+		else 
+			return null;
 		
-		StudentGenerator.setSeed(10);
-		IntegerGenerator.setSeed(10);
-<<<<<<< HEAD
-		DoubleGenerator.setSeed(10);
-		StringGenerator.setSeed(10);
-		
-		Comparable[] intRanArr = StudentGenerator.decrease(5000);
-		
-		long timeB = System.currentTimeMillis();
-		BinaryInsertionSort.sort(intRanArr);
-=======
-		Integer[] intRanArr = IntegerGenerator.random(20, 100);
-		System.out.println(Arrays.toString(intRanArr));
-		long timeB = System.currentTimeMillis();
-		NaturalMergeSort.sort(intRanArr);
->>>>>>> 53aced42400030bb09ccc1a501001bf9b5f0c846
-		long timeA = System.currentTimeMillis();
-		System.out.println("time : " + (double)(timeA - timeB) /1000);
+		if (sortType.equals("R")) {
+			return arr;
+		}
+		else if (sortType.equals("I")) {
+			Arrays.sort(arr);
+			return arr;
+		}
+		else if (sortType.equals("D")) {
+			Arrays.sort(arr, Collections.reverseOrder());
+			return arr;
+		}
+		else return null;
 
 	}
+
+	public static String getSortType(int input) {
+		if (input == 1)
+			return "R";
+		else if (input == 2)
+			return "I";
+		else if (input == 3)
+			return "D";
+		else
+			return "";
+	}
+
+	public static String getDataType(int input) {
+		final int I = 1;
+		
+		if (input == 1)
+			return "I";
+		else if (input == 2)
+			return "D";
+		else if (input == 3)
+			return "STR";
+		else if (input == 4)
+			return "STD";
+		else
+			return "";
+	}
+
+	public static int getDataSize(int input) {
+		if (input == 1)
+			return 5000;
+		else if (input == 2)
+			return 10000;
+		else if (input == 3)
+			return 25000;
+		else if (input == 4)
+			return 50000;
+		else if (input == 4)
+			return 100000;
+		else
+			return 0;
+	}
+
 }
